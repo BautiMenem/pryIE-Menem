@@ -23,15 +23,15 @@ namespace pryIE_Menem
             if (cont > 3000)
             {
                 this.Hide();
-                Form1 form1 = new Form1();
-                form1.Show();
+                frmLogin form = new frmLogin();
+                form.Show();
                 timer1.Enabled = false;
             }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+             
         }
     }
 }

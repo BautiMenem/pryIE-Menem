@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblEntrar = new System.Windows.Forms.Button();
+            this.btnEntrar = new System.Windows.Forms.Button();
             this.lblInicio = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -39,15 +39,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblEntrar
+            // btnEntrar
             // 
-            this.lblEntrar.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntrar.Location = new System.Drawing.Point(132, 234);
-            this.lblEntrar.Name = "lblEntrar";
-            this.lblEntrar.Size = new System.Drawing.Size(75, 23);
-            this.lblEntrar.TabIndex = 0;
-            this.lblEntrar.Text = "Entrar";
-            this.lblEntrar.UseVisualStyleBackColor = true;
+            this.btnEntrar.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrar.Location = new System.Drawing.Point(132, 234);
+            this.btnEntrar.Name = "btnEntrar";
+            this.btnEntrar.Size = new System.Drawing.Size(75, 23);
+            this.btnEntrar.TabIndex = 0;
+            this.btnEntrar.Text = "Entrar";
+            this.btnEntrar.UseVisualStyleBackColor = true;
+            this.btnEntrar.Click += new System.EventHandler(this.lblEntrar_Click);
             // 
             // lblInicio
             // 
@@ -76,11 +77,13 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(116, 20);
             this.txtUsuario.TabIndex = 3;
+            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
             // txtContraseña
             // 
             this.txtContraseña.Location = new System.Drawing.Point(149, 187);
             this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(116, 20);
             this.txtContraseña.TabIndex = 4;
             // 
@@ -128,8 +131,9 @@
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblInicio);
-            this.Controls.Add(this.lblEntrar);
+            this.Controls.Add(this.btnEntrar);
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -139,13 +143,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button lblEntrar;
+        private System.Windows.Forms.Button btnEntrar;
         private System.Windows.Forms.Label lblInicio;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblContraseña;
         private System.Windows.Forms.Button btnSalir;
+        public System.Windows.Forms.TextBox txtUsuario;
     }
 }
