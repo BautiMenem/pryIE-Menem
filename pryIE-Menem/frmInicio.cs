@@ -66,5 +66,21 @@ namespace pryIE_Menem
         {
            
         }
+
+        private void lblHora_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmArchivo A = new frmArchivo();
+            A.ShowDialog();
+        }
     }
 }
