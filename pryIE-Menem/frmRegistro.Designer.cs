@@ -48,7 +48,11 @@
             this.btnCargar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.lblRegistros = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lblJuris = new System.Windows.Forms.Label();
+            this.txtjuris = new System.Windows.Forms.TextBox();
             this.mrcDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNumero
@@ -113,14 +117,14 @@
             this.lblJusg.AutoSize = true;
             this.lblJusg.Location = new System.Drawing.Point(20, 205);
             this.lblJusg.Name = "lblJusg";
-            this.lblJusg.Size = new System.Drawing.Size(63, 15);
+            this.lblJusg.Size = new System.Drawing.Size(31, 15);
             this.lblJusg.TabIndex = 7;
-            this.lblJusg.Text = "Jusg. Jurisd";
+            this.lblJusg.Text = "Jusg.";
             // 
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(20, 247);
+            this.lblDireccion.Location = new System.Drawing.Point(20, 276);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(53, 15);
             this.lblDireccion.TabIndex = 8;
@@ -129,7 +133,7 @@
             // lblLiquidador
             // 
             this.lblLiquidador.AutoSize = true;
-            this.lblLiquidador.Location = new System.Drawing.Point(20, 290);
+            this.lblLiquidador.Location = new System.Drawing.Point(20, 320);
             this.lblLiquidador.Name = "lblLiquidador";
             this.lblLiquidador.Size = new System.Drawing.Size(123, 15);
             this.lblLiquidador.TabIndex = 9;
@@ -152,20 +156,22 @@
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(157, 244);
+            this.txtDireccion.Location = new System.Drawing.Point(157, 270);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(221, 21);
             this.txtDireccion.TabIndex = 12;
             // 
             // txtLiquidador
             // 
-            this.txtLiquidador.Location = new System.Drawing.Point(157, 287);
+            this.txtLiquidador.Location = new System.Drawing.Point(157, 314);
             this.txtLiquidador.Name = "txtLiquidador";
             this.txtLiquidador.Size = new System.Drawing.Size(221, 21);
             this.txtLiquidador.TabIndex = 13;
             // 
             // mrcDatos
             // 
+            this.mrcDatos.Controls.Add(this.txtjuris);
+            this.mrcDatos.Controls.Add(this.lblJuris);
             this.mrcDatos.Controls.Add(this.txtLiquidador);
             this.mrcDatos.Controls.Add(this.txtNumero);
             this.mrcDatos.Controls.Add(this.txtDireccion);
@@ -183,7 +189,7 @@
             this.mrcDatos.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mrcDatos.Location = new System.Drawing.Point(12, 51);
             this.mrcDatos.Name = "mrcDatos";
-            this.mrcDatos.Size = new System.Drawing.Size(415, 334);
+            this.mrcDatos.Size = new System.Drawing.Size(415, 357);
             this.mrcDatos.TabIndex = 14;
             this.mrcDatos.TabStop = false;
             this.mrcDatos.Text = "Datos Proveedor";
@@ -191,7 +197,7 @@
             // btnSalir
             // 
             this.btnSalir.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(452, 362);
+            this.btnSalir.Location = new System.Drawing.Point(452, 353);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 15;
@@ -239,12 +245,37 @@
             this.lblRegistros.Text = "Registrar Datos del Proveedor";
             this.lblRegistros.Click += new System.EventHandler(this.lblRegistros_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 414);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(515, 297);
+            this.dataGridView1.TabIndex = 20;
+            // 
+            // lblJuris
+            // 
+            this.lblJuris.AutoSize = true;
+            this.lblJuris.Location = new System.Drawing.Point(20, 242);
+            this.lblJuris.Name = "lblJuris";
+            this.lblJuris.Size = new System.Drawing.Size(64, 15);
+            this.lblJuris.TabIndex = 14;
+            this.lblJuris.Text = "Jurisdiccion";
+            // 
+            // txtjuris
+            // 
+            this.txtjuris.Location = new System.Drawing.Point(157, 236);
+            this.txtjuris.Name = "txtjuris";
+            this.txtjuris.Size = new System.Drawing.Size(221, 21);
+            this.txtjuris.TabIndex = 15;
+            // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(542, 402);
+            this.ClientSize = new System.Drawing.Size(538, 725);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblRegistros);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnCargar);
@@ -255,6 +286,7 @@
             this.Text = "frmRegistro";
             this.mrcDatos.ResumeLayout(false);
             this.mrcDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,5 +314,8 @@
         private System.Windows.Forms.Button btnCargar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label lblRegistros;
+        private System.Windows.Forms.TextBox txtjuris;
+        private System.Windows.Forms.Label lblJuris;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
