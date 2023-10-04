@@ -33,7 +33,6 @@
             this.txtEntidad = new System.Windows.Forms.TextBox();
             this.lblEntidad = new System.Windows.Forms.Label();
             this.lblApertura = new System.Windows.Forms.Label();
-            this.txtApertuta = new System.Windows.Forms.TextBox();
             this.lblNExp = new System.Windows.Forms.Label();
             this.lblJusg = new System.Windows.Forms.Label();
             this.lblDireccion = new System.Windows.Forms.Label();
@@ -41,6 +40,9 @@
             this.txtNExp = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.mrcDatos = new System.Windows.Forms.GroupBox();
+            this.cboJusg = new System.Windows.Forms.ComboBox();
+            this.cboLiquidador = new System.Windows.Forms.ComboBox();
+            this.cboJurisdiccion = new System.Windows.Forms.ComboBox();
             this.lblJuris = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -48,9 +50,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.lblRegistros = new System.Windows.Forms.Label();
             this.dgvProveedores = new System.Windows.Forms.DataGridView();
-            this.cboJurisdiccion = new System.Windows.Forms.ComboBox();
-            this.cboLiquidador = new System.Windows.Forms.ComboBox();
-            this.cboJusg = new System.Windows.Forms.ComboBox();
+            this.dtpApertura = new System.Windows.Forms.DateTimePicker();
             this.mrcDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
             this.SuspendLayout();
@@ -96,13 +96,6 @@
             this.lblApertura.TabIndex = 4;
             this.lblApertura.Text = "Apertura";
             // 
-            // txtApertuta
-            // 
-            this.txtApertuta.Location = new System.Drawing.Point(157, 122);
-            this.txtApertuta.Name = "txtApertuta";
-            this.txtApertuta.Size = new System.Drawing.Size(158, 21);
-            this.txtApertuta.TabIndex = 5;
-            // 
             // lblNExp
             // 
             this.lblNExp.AutoSize = true;
@@ -124,7 +117,7 @@
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(393, 128);
+            this.lblDireccion.Location = new System.Drawing.Point(393, 164);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(53, 15);
             this.lblDireccion.TabIndex = 8;
@@ -133,7 +126,7 @@
             // lblLiquidador
             // 
             this.lblLiquidador.AutoSize = true;
-            this.lblLiquidador.Location = new System.Drawing.Point(341, 166);
+            this.lblLiquidador.Location = new System.Drawing.Point(393, 128);
             this.lblLiquidador.Name = "lblLiquidador";
             this.lblLiquidador.Size = new System.Drawing.Size(123, 15);
             this.lblLiquidador.TabIndex = 9;
@@ -149,13 +142,15 @@
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(470, 122);
+            this.txtDireccion.Location = new System.Drawing.Point(470, 161);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(190, 21);
             this.txtDireccion.TabIndex = 12;
+            this.txtDireccion.TextChanged += new System.EventHandler(this.txtDireccion_TextChanged);
             // 
             // mrcDatos
             // 
+            this.mrcDatos.Controls.Add(this.dtpApertura);
             this.mrcDatos.Controls.Add(this.cboJusg);
             this.mrcDatos.Controls.Add(this.cboLiquidador);
             this.mrcDatos.Controls.Add(this.cboJurisdiccion);
@@ -169,7 +164,6 @@
             this.mrcDatos.Controls.Add(this.lblLiquidador);
             this.mrcDatos.Controls.Add(this.lblApertura);
             this.mrcDatos.Controls.Add(this.lblDireccion);
-            this.mrcDatos.Controls.Add(this.txtApertuta);
             this.mrcDatos.Controls.Add(this.lblJusg);
             this.mrcDatos.Controls.Add(this.lblNExp);
             this.mrcDatos.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -179,6 +173,30 @@
             this.mrcDatos.TabIndex = 14;
             this.mrcDatos.TabStop = false;
             this.mrcDatos.Text = "Datos Proveedor";
+            // 
+            // cboJusg
+            // 
+            this.cboJusg.FormattingEnabled = true;
+            this.cboJusg.Location = new System.Drawing.Point(516, 46);
+            this.cboJusg.Name = "cboJusg";
+            this.cboJusg.Size = new System.Drawing.Size(144, 23);
+            this.cboJusg.TabIndex = 17;
+            // 
+            // cboLiquidador
+            // 
+            this.cboLiquidador.FormattingEnabled = true;
+            this.cboLiquidador.Location = new System.Drawing.Point(516, 125);
+            this.cboLiquidador.Name = "cboLiquidador";
+            this.cboLiquidador.Size = new System.Drawing.Size(144, 23);
+            this.cboLiquidador.TabIndex = 16;
+            // 
+            // cboJurisdiccion
+            // 
+            this.cboJurisdiccion.FormattingEnabled = true;
+            this.cboJurisdiccion.Location = new System.Drawing.Point(516, 83);
+            this.cboJurisdiccion.Name = "cboJurisdiccion";
+            this.cboJurisdiccion.Size = new System.Drawing.Size(144, 23);
+            this.cboJurisdiccion.TabIndex = 15;
             // 
             // lblJuris
             // 
@@ -208,6 +226,7 @@
             this.btnEditar.TabIndex = 16;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnCargar
             // 
@@ -229,6 +248,7 @@
             this.btnEliminar.TabIndex = 18;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // lblRegistros
             // 
@@ -243,36 +263,23 @@
             // 
             // dgvProveedores
             // 
+            this.dgvProveedores.AllowUserToAddRows = false;
+            this.dgvProveedores.AllowUserToDeleteRows = false;
             this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProveedores.Location = new System.Drawing.Point(12, 273);
             this.dgvProveedores.Name = "dgvProveedores";
+            this.dgvProveedores.ReadOnly = true;
             this.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProveedores.Size = new System.Drawing.Size(777, 227);
             this.dgvProveedores.TabIndex = 20;
+            this.dgvProveedores.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProveedores_CellMouseDoubleClick);
             // 
-            // cboJurisdiccion
+            // dtpApertura
             // 
-            this.cboJurisdiccion.FormattingEnabled = true;
-            this.cboJurisdiccion.Location = new System.Drawing.Point(470, 82);
-            this.cboJurisdiccion.Name = "cboJurisdiccion";
-            this.cboJurisdiccion.Size = new System.Drawing.Size(144, 23);
-            this.cboJurisdiccion.TabIndex = 15;
-            // 
-            // cboLiquidador
-            // 
-            this.cboLiquidador.FormattingEnabled = true;
-            this.cboLiquidador.Location = new System.Drawing.Point(470, 158);
-            this.cboLiquidador.Name = "cboLiquidador";
-            this.cboLiquidador.Size = new System.Drawing.Size(144, 23);
-            this.cboLiquidador.TabIndex = 16;
-            // 
-            // cboJusg
-            // 
-            this.cboJusg.FormattingEnabled = true;
-            this.cboJusg.Location = new System.Drawing.Point(470, 43);
-            this.cboJusg.Name = "cboJusg";
-            this.cboJusg.Size = new System.Drawing.Size(144, 23);
-            this.cboJusg.TabIndex = 17;
+            this.dtpApertura.Location = new System.Drawing.Point(157, 122);
+            this.dtpApertura.Name = "dtpApertura";
+            this.dtpApertura.Size = new System.Drawing.Size(200, 21);
+            this.dtpApertura.TabIndex = 18;
             // 
             // frmRegistro
             // 
@@ -305,7 +312,6 @@
         private System.Windows.Forms.TextBox txtEntidad;
         private System.Windows.Forms.Label lblEntidad;
         private System.Windows.Forms.Label lblApertura;
-        private System.Windows.Forms.TextBox txtApertuta;
         private System.Windows.Forms.Label lblNExp;
         private System.Windows.Forms.Label lblJusg;
         private System.Windows.Forms.Label lblDireccion;
@@ -323,5 +329,6 @@
         private System.Windows.Forms.ComboBox cboJurisdiccion;
         private System.Windows.Forms.ComboBox cboLiquidador;
         private System.Windows.Forms.ComboBox cboJusg;
+        private System.Windows.Forms.DateTimePicker dtpApertura;
     }
 }
