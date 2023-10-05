@@ -154,5 +154,11 @@ namespace pryIE_Menem
                 MessageBox.Show("Error: " + ex, "", MessageBoxButtons.OK);
             }
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            frmInicio I = new frmInicio();
+            I.ShowDialog();
+        }
     }
 }

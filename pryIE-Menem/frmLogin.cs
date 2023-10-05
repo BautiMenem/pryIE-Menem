@@ -40,7 +40,20 @@ namespace pryIE_Menem
                 this.Hide();
                 frmInicio frminicio = new frmInicio();
                 frminicio.lblUser.Text = txtUsuario.Text;
+                frminicio.Gestion.Enabled = false;
                 frminicio.ShowDialog();
+                
+                
+            }
+            else
+            {
+                if (txtUsuario.Text == "Admin" && txtContraseña.Text == "Admin")
+                {
+                    this.Hide();
+                    frmInicio frminicio = new frmInicio();
+                    frminicio.lblUser.Text = txtUsuario.Text;
+                    frminicio.ShowDialog();
+                }
             }
 
 

@@ -35,7 +35,6 @@ namespace pryIE_Menem
         
         private void hora_Tick_1(object sender, EventArgs e)
         {
-            
                 lblHora.Text = DateTime.Now.ToString();           
         }
 
@@ -82,5 +81,13 @@ namespace pryIE_Menem
             frmArchivo A = new frmArchivo();
             A.ShowDialog();
         }
+
+        private void registroDeProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRegistro R = new frmRegistro();
+            R.ShowDialog();
+        }
+
     }
+
 }
