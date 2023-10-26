@@ -30,31 +30,43 @@ namespace pryIE_Menem
 
         private void lblEntrar_Click(object sender, EventArgs e)
         {
+
             StreamWriter AD = new StreamWriter("logInicio", false);
 
             AD.WriteLine(txtUsuario.Text + "- Fecha -" + DateTime.Now );
             AD.Close();
 
-            if (txtUsuario.Text == "Joao" && txtContraseña.Text == "Joao")
+            clsUsuarios clsUsuarios = new clsUsuarios();
+
+            if (clsUsuarios.Validarusuarios(txtUsuario.Text, txtContraseña.Text))
             {
                 this.Hide();
                 frmInicio frminicio = new frmInicio();
                 frminicio.lblUser.Text = txtUsuario.Text;
                 frminicio.Gestion.Enabled = false;
                 frminicio.ShowDialog();
-                
-                
             }
-            else
-            {
-                if (txtUsuario.Text == "Admin" && txtContraseña.Text == "Admin")
-                {
-                    this.Hide();
-                    frmInicio frminicio = new frmInicio();
-                    frminicio.lblUser.Text = txtUsuario.Text;
-                    frminicio.ShowDialog();
-                }
-            }
+
+            //if (txtUsuario.Text == "Joao" && txtContraseña.Text == "Joao")
+            //{
+            //    this.Hide();
+            //    frmInicio frminicio = new frmInicio();
+            //    frminicio.lblUser.Text = txtUsuario.Text;
+            //    frminicio.Gestion.Enabled = false;
+            //    frminicio.ShowDialog();
+
+
+            //}
+            //else
+            //{
+            //    if (txtUsuario.Text == "Admin" && txtContraseña.Text == "Admin")
+            //    {
+            //        this.Hide();
+            //        frmInicio frminicio = new frmInicio();
+            //        frminicio.lblUser.Text = txtUsuario.Text;
+            //        frminicio.ShowDialog();
+            //    }
+            //}
 
 
         }
