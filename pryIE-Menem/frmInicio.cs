@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 
 namespace pryIE_Menem
 {
@@ -88,6 +81,16 @@ namespace pryIE_Menem
             R.ShowDialog();
         }
 
+        private void crearUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void crearNuevoUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           CrearUsuarios c = new CrearUsuarios();
+            c.ShowDialog();
+        }
     }
 
 }

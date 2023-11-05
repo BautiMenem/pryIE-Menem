@@ -43,6 +43,9 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.hora = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.crearUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosActivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearNuevoUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,7 +56,8 @@
             this.menuStrip2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Gestion,
-            this.ListadoRep});
+            this.ListadoRep,
+            this.crearUsuariosToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(572, 24);
@@ -75,7 +79,7 @@
             this.proveedorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registroDeProveedoresToolStripMenuItem});
             this.proveedorToolStripMenuItem.Name = "proveedorToolStripMenuItem";
-            this.proveedorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.proveedorToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.proveedorToolStripMenuItem.Text = "Proveedor";
             // 
             // registroDeProveedoresToolStripMenuItem
@@ -165,6 +169,29 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // crearUsuariosToolStripMenuItem
+            // 
+            this.crearUsuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usuariosActivosToolStripMenuItem,
+            this.crearNuevoUsuarioToolStripMenuItem});
+            this.crearUsuariosToolStripMenuItem.Name = "crearUsuariosToolStripMenuItem";
+            this.crearUsuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.crearUsuariosToolStripMenuItem.Text = "Usuarios";
+            this.crearUsuariosToolStripMenuItem.Click += new System.EventHandler(this.crearUsuariosToolStripMenuItem_Click);
+            // 
+            // usuariosActivosToolStripMenuItem
+            // 
+            this.usuariosActivosToolStripMenuItem.Name = "usuariosActivosToolStripMenuItem";
+            this.usuariosActivosToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.usuariosActivosToolStripMenuItem.Text = "Usuarios Activos..";
+            // 
+            // crearNuevoUsuarioToolStripMenuItem
+            // 
+            this.crearNuevoUsuarioToolStripMenuItem.Name = "crearNuevoUsuarioToolStripMenuItem";
+            this.crearNuevoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.crearNuevoUsuarioToolStripMenuItem.Text = "Crear Nuevo Usuario..";
+            this.crearNuevoUsuarioToolStripMenuItem.Click += new System.EventHandler(this.crearNuevoUsuarioToolStripMenuItem_Click);
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,6 +229,9 @@
         private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem Gestion;
+        private System.Windows.Forms.ToolStripMenuItem crearUsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuariosActivosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearNuevoUsuarioToolStripMenuItem;
     }
 }
 

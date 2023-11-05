@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.OleDb;
+using System.Windows.Forms;
 
 namespace pryIE_Menem
 {
@@ -76,5 +77,36 @@ namespace pryIE_Menem
             }
 
         }
+
+        public class Usuario
+        {
+            public string Nombre { get; set; }
+            public string Apellido { get; set; }
+            public string User { get; set; }
+            public string Contraseña { get; set; }
+            public byte[] Firma { get; set; }
+        }
+       
+        
+          public bool RegistrarUsuario(string usuario, string apellido, string nomus, string contra, PictureBox firma)
+          {
+                using (OleDbConnection conexion = new OleDbConnection(cadenadeconexion))
+                {
+                    conexion.Open();
+                    string consulta = "INSERT INTO Usuarios (Nombre, Apellido, Usuario, Contraseña, Firma) VALUES @nombre, @apellido, @usuario, @contraseña,@firma )";
+                    using (OleDbCommand comando = new OleDbCommand(consulta, conexion))
+                    {
+                        comando.Parameters.AddWithValue("Nombre", usuario);
+                        comando.Parameters.AddWithValue("Apellido", apellido);
+                        comando.Parameters.AddWithValue("Usuario", nomus);
+                        comando.Parameters.AddWithValue("Contraseña", contra);
+                        comando.Parameters.AddWithValue("Firma", firma);
+                        int filasAfectadas = comando.ExecuteNonQuery();
+                        return filasAfectadas > 0;
+                    }
+                }
+          }
+
+        
     }
 }
