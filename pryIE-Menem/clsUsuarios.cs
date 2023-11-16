@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Data.OleDb;
 using System.Windows.Forms;
+using System.Drawing;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.IO;
+using System.Data.SqlClient;
 
 namespace pryIE_Menem
 {
@@ -84,29 +88,48 @@ namespace pryIE_Menem
             public string Apellido { get; set; }
             public string User { get; set; }
             public string Contraseña { get; set; }
-            public byte[] Firma { get; set; }
+            //public byte[] Firma { get; set; }
         }
        
         
-          public bool RegistrarUsuario(string usuario, string apellido, string nomus, string contra, PictureBox firma)
+          public void RegistrarUsuario(string usuario, string apellido, string nomus, string contra, Image firma)
           {
+            try
+            {
+
                 using (OleDbConnection conexion = new OleDbConnection(cadenadeconexion))
                 {
+
+                    byte[] firmaBytes;
+                    using (MemoryStream m = new MemoryStream())
+                    {
+                        firma.Save(m, System.Drawing.Imaging.ImageFormat.Png);
+                        firmaBytes = m.ToArray();
+                    }
+
                     conexion.Open();
-                    string consulta = "INSERT INTO Usuarios (Nombre, Apellido, Usuario, Contraseña, Firma) VALUES @nombre, @apellido, @usuario, @contraseña,@firma )";
+                    string consulta = "INSERT INTO Usuarios (Nombre, Apellido, Firma) VALUES @nombre, @apellido, @firma )";
                     using (OleDbCommand comando = new OleDbCommand(consulta, conexion))
                     {
                         comando.Parameters.AddWithValue("Nombre", usuario);
                         comando.Parameters.AddWithValue("Apellido", apellido);
                         comando.Parameters.AddWithValue("Usuario", nomus);
                         comando.Parameters.AddWithValue("Contraseña", contra);
-                        comando.Parameters.AddWithValue("Firma", firma);
-                        int filasAfectadas = comando.ExecuteNonQuery();
-                        return filasAfectadas > 0;
+                        comando.Parameters.AddWithValue("Firma", OleDbType.VarBinary).Value = firmaBytes;
+
+                        comando.ExecuteNonQuery();
                     }
+                    MessageBox.Show("Se registró correctamente");
                 }
+            }
+            catch (Exception ex)
+            {
+                
+                throw;
+            }
           }
 
         
+
     }
 }

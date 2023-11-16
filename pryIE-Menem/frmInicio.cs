@@ -88,7 +88,7 @@ namespace pryIE_Menem
 
         private void crearNuevoUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           CrearUsuarios c = new CrearUsuarios();
+           frmCrearus c = new frmCrearus();
             c.ShowDialog();
         }
     }
